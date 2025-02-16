@@ -8,7 +8,7 @@ interface NavProps {
 export function Nav({ theme, toggleTheme }: NavProps) {
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#0A0A0A]/80 backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#0A0A0A] backdrop-blur">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
         <a href="/" className="text-xl font-bold text-[#FF5C00] dark:text-white">
           Dev.Luv

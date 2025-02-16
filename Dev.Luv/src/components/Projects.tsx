@@ -21,23 +21,13 @@ export function Projects() {
     },
   ]
 
-  const handleScroll = (event) => {
-    const container = event.target;
-    const scrollAmount = event.deltaY;
-    container.scrollTo({
-      top: 0,
-      left: container.scrollLeft + scrollAmount,
-      behavior: 'smooth'
-    });
-  };
-
   return (
     <section id="projects" className="border-t container mx-auto py-24 px-4">
       <h2 className="text-3xl font-bold text-center mb-2">Featured Projects</h2>
       <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
         Showcasing my latest work and technical capabilities
       </p>
-      <div className="grid md:grid-cols-3 gap-8" onWheel={handleScroll}>
+      <div className="grid md:grid-cols-3 gap-8">
         {projects.map((project, i) => (
           <div
             key={i}
