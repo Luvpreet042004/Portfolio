@@ -1,12 +1,12 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import Cors from "cors";
+import cors from "cors";
 import EkiliMailer from "ekilirelay";
 
 dotenv.config();
 
 const app: Express = express();
-app.use(Cors());
+app.use(cors());
 app.use(express.json());
 
 const port = process.env.PORT || 3000;

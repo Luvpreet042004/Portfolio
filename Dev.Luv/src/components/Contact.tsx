@@ -17,7 +17,7 @@ export function Contact() {
     e.preventDefault(); // Prevent page reload
   
     try {
-      const response = await axios.post("http://localhost:3000/send-email", formData);
+      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/send-email`, formData);
       console.log("Email sent successfully:", response.data);
       
       alert("Your message has been sent successfully!");
