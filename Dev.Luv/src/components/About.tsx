@@ -6,7 +6,7 @@ export function About() {
         <h2 className="text-3xl font-bold mb-8">About Me</h2>
         <div className="space-y-4">
           <p className="text-gray-600 dark:text-gray-400">
-            Hi, I'm [Your Name]. A passionate Full-Stack Developer based in [Your Location] with 5 years of experience in
+            Hi, I'm Luvpreet Singh. A passionate Full-Stack Developer based in [Your Location] with 5 years of experience in
             building web applications.
           </p>
           <p className="text-gray-600 dark:text-gray-400">
