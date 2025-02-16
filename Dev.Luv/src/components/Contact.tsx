@@ -17,7 +17,7 @@ export function Contact() {
     e.preventDefault(); // Prevent page reload
   
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/send-email`, formData);
+      const response = await axios.post(`https://portfolio-production-66c5.up.railway.app/send-email`, formData);
       console.log("Email sent successfully:", response.data);
       
       alert("Your message has been sent successfully!");

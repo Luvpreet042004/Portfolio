@@ -6,7 +6,11 @@ import EkiliMailer from "ekilirelay";
 dotenv.config();
 
 const app: Express = express();
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: "GET,POST",
+    allowedHeaders: "Content-Type,Authorization"
+}));
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
