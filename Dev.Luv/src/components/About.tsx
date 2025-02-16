@@ -6,12 +6,13 @@ export function About() {
         <h2 className="text-3xl font-bold mb-8">About Me</h2>
         <div className="space-y-4">
           <p className="text-gray-600 dark:text-gray-400">
-            Hi, I'm Luvpreet Singh. A passionate Full-Stack Developer based in [Your Location] with 5 years of experience in
-            building web applications.
+          I'm a Full-Stack Developer and a student at IIT Roorkee, passionate about building scalable and efficient web applications. With expertise in React, TypeScript, Node.js, Prisma, and PostgreSQL, I create seamless user experiences and robust backend systems. I enjoy solving complex problems, optimizing performance, and continuously learning new technologies.
+          
+          Let’s build something amazing together! 🚀
           </p>
           <p className="text-gray-600 dark:text-gray-400">
             I specialize in creating efficient, scalable, and user-friendly solutions that solve real-world problems. My
-            journey in tech started with [your story], and I've been in love with coding ever since.
+            journey in tech started with tinkering with computers and writing my first 'Hello World' program in C++ in College, and I've been in love with coding ever since.
           </p>
           <div className="space-y-2">
             <h3 className="font-semibold">Current Focus</h3>
