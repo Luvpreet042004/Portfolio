@@ -21,18 +21,23 @@ const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 const port = process.env.PORT || 3000;
-const API_KEY = process.env.API_KEY || " ";
+const API_KEY = process.env.API_KEY || "";
+if (!API_KEY) {
+    console.error("API_KEY is missing in environment variables");
+    process.exit(1);
+}
 const mailer = new ekilirelay_1.default(API_KEY);
 app.post("/send-email", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name, email, message } = req.body;
+        if (!name || !email || !message) {
+            res.status(400).json({ message: "Missing required fields" });
+            return;
+        }
         const sub = `Got Your Message! I'll Be in Touch Soon`;
-        const msg = `Hi ${name},\nThank you for getting in touch! I’ve received your message and will get back to you as soon as possible. Looking forward to our conversation!\nBest,\nLuvpreet Singh\n+91 7657937890`;
+        const msg = `Hi ${name},\nThank you for getting in touch! I’ve received your message and will get back to you as soon as possible.\nBest,\nLuvpreet Singh\n+91 7657937890`;
         yield mailer.sendEmail(email, sub, msg);
-        const ourMsg = `Client name : ${name}
-         Email : ${email}
-         Message : ${message}
-        `;
+        const ourMsg = `Client Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
         yield mailer.sendEmail("luvpreetsingh8566@gmail.com", "New Client", ourMsg);
         res.status(200).json({ message: "Email sent successfully" });
     }
