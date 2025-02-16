@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import EkiliMailer from "ekilirelay";
@@ -19,12 +19,19 @@ if (!API_KEY) {
 
 const mailer = new EkiliMailer(API_KEY);
 
+// Middleware to log all requests with IST time
+app.use((req: Request, res: Response, next: NextFunction) => {
+    const istTime = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    console.log(`[${istTime}] ${req.method} ${req.url}`);
+    next();
+});
+
 app.post("/send-email", async (req: Request, res: Response) => {
     try {
         const { name, email, message } = req.body;
         if (!name || !email || !message) {
             res.status(400).json({ message: "Missing required fields" });
-            return
+            return;
         }
 
         const sub = `Got Your Message! I'll Be in Touch Soon`;
@@ -43,5 +50,6 @@ app.post("/send-email", async (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+    const istTime = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    console.log(`[${istTime}] [server]: Server is running at http://localhost:${port}`);
 });
