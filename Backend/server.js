@@ -1,11 +1,11 @@
-import express, { Express, Request, Response, NextFunction } from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import routes from './routes';
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const routes = require("./routes");
 
 dotenv.config();
 
-const app: Express = express();
+const app = express();
 app.use(express.json());
 app.use(cors({
     origin: "*",
@@ -16,13 +16,13 @@ app.use(cors({
 const port = process.env.PORT || 3000;
 
 // Middleware to log all requests with IST time
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((req, res, next) => {
     const istTime = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
     console.log(`[${istTime}] ${req.method} ${req.url}`);
     next();
 });
 
-app.use("/api",routes)
+app.use("/api", routes);
 
 app.listen(port, () => {
     const istTime = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });

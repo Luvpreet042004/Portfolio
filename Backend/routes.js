@@ -1,16 +1,13 @@
-import {Request,Response} from 'express';
-import { Router } from 'express';
-import EkiliMailer from "ekilirelay";
+const express = require("express");
+const EkiliMailer = require('ekilirelay').default;
 
 
-const router = Router(); 
+const router = express.Router();
 const API_KEY = process.env.API_KEY || "";
-
 
 const mailer = new EkiliMailer(API_KEY);
 
-
-router.post("/send-email", async (req: Request, res: Response) => {
+router.post("/send-email", async (req, res) => {
     try {
         const { name, email, message } = req.body;
         console.log(API_KEY);
@@ -35,8 +32,8 @@ router.post("/send-email", async (req: Request, res: Response) => {
     }
 });
 
-router.get("/test", (req : Request,res :Response) => {
+router.get("/test", (req, res) => {
     res.send("Test route is working!");
-})
+});
 
-export default router;
+module.exports = router;
