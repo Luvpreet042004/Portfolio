@@ -35,4 +35,8 @@ router.post("/send-email", async (req: Request, res: Response) => {
     }
 });
 
+router.get("/test", (req : Request,res :Response) => {
+    res.send("Test route is working!");
+})
+
 export default router;
