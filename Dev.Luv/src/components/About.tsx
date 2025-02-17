@@ -6,7 +6,7 @@ export function About() {
         <h2 className="text-3xl font-bold mb-8">About Me</h2>
         <div className="space-y-4">
           <p className="text-gray-600 dark:text-gray-400">
-          I'm a Full-Stack Developer and a student at IIT Roorkee, passionate about building scalable and efficient web applications. With expertise in React, TypeScript, Node.js, Prisma, and PostgreSQL, I create seamless user experiences and robust backend systems. I enjoy solving complex problems, optimizing performance, and continuously learning new technologies.
+          Hii, I'm Luvpreet Singh , a Full-Stack Developer and a student at IIT Roorkee, passionate about building scalable and efficient web applications. With expertise in React, TypeScript, Node.js, Prisma, and PostgreSQL, I create seamless user experiences and robust backend systems. I enjoy solving complex problems, optimizing performance, and continuously learning new technologies.
           
           Let’s build something amazing together! 🚀
           </p>
